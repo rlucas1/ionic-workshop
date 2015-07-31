@@ -1,1 +1,10 @@
 /* Empty. Add your own CSS if you like */
+
+.justify {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.angular-google-map-container {
+    height: 400px;
+}

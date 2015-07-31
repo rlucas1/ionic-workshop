@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'controllers','services'])
+angular.module('starter', ['ionic', 'controllers', 'services','uiGmapgoogle-maps'])
 
     .run(function ($ionicPlatform) {
         $ionicPlatform.ready(function () {
@@ -21,11 +21,14 @@ angular.module('starter', ['ionic', 'controllers','services'])
             }
         });
     })
-
+    .config(function(uiGmapGoogleMapApiProvider) {
+        uiGmapGoogleMapApiProvider.configure({
+            v: '3.17',
+            libraries: 'weather,geometry,visualization'
+        });
+    })
     .config(function ($stateProvider, $urlRouterProvider) {
-        $stateProvider
-
-            .state('app', {
+        $stateProvider.state('app', {
                 url: '/app',
                 abstract: true,
                 templateUrl: 'templates/menu.html',
@@ -49,14 +52,39 @@ angular.module('starter', ['ionic', 'controllers','services'])
                     }
                 }
             }
-        )
-            //TODO remove this state
-            .state('app.cardList', {
+        ).state('app.cardList', {
                 url: '/card-list',
                 views: {
                     'menuContent': {
                         templateUrl: 'templates/cardList.html',
                         controller: 'cardListCtrl'
+                    }
+                }
+            }
+        ).state('app.database', {
+                url: '/form-database',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/form-database.html',
+                        controller: 'formDatabaseCtrl'
+                    }
+                }
+            }
+        ).state('app.location', {
+                url: '/location',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/location.html',
+                        controller: 'locationCtrl'
+                    }
+                }
+            }
+        ).state('app.notification', {
+                url: '/notification',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/notification.html',
+                        controller: 'notificationCtrl'
                     }
                 }
             }

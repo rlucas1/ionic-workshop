@@ -8,6 +8,7 @@
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 
+
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
     -->
@@ -20,12 +21,19 @@
 
     <!-- your app's js -->
     <script src="js/app.js"></script>
-    <script src="js/controllers/app.controllers.js"></script>
-    <script src="js/controllers/classicalList.controller.js"></script>
-    <script src="js/controllers/cardList.controller.js"></script>
+    <script src="js/controllers/controller.app.js"></script>
+    <script src="js/controllers/controller.classicalList.js"></script>
+    <script src="js/controllers/controller.cardList.js"></script>
+    <script src="js/controllers/controller.formDatabase.js"></script>
+    <script src="js/controllers/controller.location.js"></script>
+    <script src="js/controllers/controller.notification.js"></script>
 
     <!--services-->
-    <script src="js/services/data.service.js"></script>
+    <script src="js/services/service.data.js"></script>
+
+    <!--libs-->
+    <script src='lib/lodash/lodash.min.js'></script>
+    <script src='lib/angular-google-maps/dist/angular-google-maps.min.js'></script>
 </head>
 
 <body ng-app="starter">
