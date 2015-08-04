@@ -4,7 +4,13 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'controllers', 'services','uiGmapgoogle-maps'])
+angular.module('starter', [
+    'ionic',
+    'controllers',
+    'services',
+    //plugins
+    'uiGmapgoogle-maps',
+    'ngCordova'])
 
     .run(function ($ionicPlatform) {
         $ionicPlatform.ready(function () {
@@ -24,7 +30,7 @@ angular.module('starter', ['ionic', 'controllers', 'services','uiGmapgoogle-maps
     .config(function(uiGmapGoogleMapApiProvider) {
         uiGmapGoogleMapApiProvider.configure({
             v: '3.17',
-            libraries: 'weather,geometry,visualization'
+            //libraries: 'weather,geometry,visualization'
         });
     })
     .config(function ($stateProvider, $urlRouterProvider) {
