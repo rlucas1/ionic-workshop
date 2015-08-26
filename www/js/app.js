@@ -52,6 +52,15 @@ angular.module('starter', ['ionic', 'controllers', 'services','uiGmapgoogle-maps
                     }
                 }
             }
+        ).state('app.detail', {
+                url: '/detail',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/itemDetail.html',
+                        controller: 'classicalListCtrl'
+                    }
+                }
+            }
         ).state('app.cardList', {
                 url: '/card-list',
                 views: {
