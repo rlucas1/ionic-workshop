@@ -15,5 +15,15 @@ angular.module('controllers')
         $scope.onItemClicked = function (item) {
             $state.go('app.classicalList.detail');
         };
+    })
+
+    /** controller for item detals */
+    .controller('itemDetailCtrl', function ($scope, $state, dataService,$stateParams) {
+
+        /** Getting items from service */
+        dataService.getDataById($stateParams.id).then(function (data) {
+            $scope.item = data;
+        });
+
     }
 );

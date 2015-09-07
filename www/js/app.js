@@ -53,11 +53,11 @@ angular.module('starter', ['ionic', 'controllers', 'services','uiGmapgoogle-maps
                 }
             }
         ).state('app.detail', {
-                url: '/detail',
+                url: '/detail/:id',
                 views: {
                     'menuContent': {
                         templateUrl: 'templates/itemDetail.html',
-                        controller: 'classicalListCtrl'
+                        controller: 'itemDetailCtrl'
                     }
                 }
             }
