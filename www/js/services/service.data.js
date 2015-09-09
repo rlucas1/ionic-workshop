@@ -1,7 +1,7 @@
 angular.module('services', [])
 
     /** Data access services **/
-    .factory('dataService', function ($q) {
+    .factory('dataService', function ($q, databaseService) {
 
         var data;
 
@@ -34,7 +34,14 @@ angular.module('services', [])
                 }else {
                     return $q.when(data[id]);
                 }
+            },
+
+            insertItem: function (item) {
+                return databaseService.executeQuery("INSERT INTO item VALUES (?,?,?)", [2, $scope.item.name, $scope.item.description]);
             }
+
+            //TODO faire une méthode qui recupère la liste des itemset modifier la liste simple
+
         };
     }
 );
