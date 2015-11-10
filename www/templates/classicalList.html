@@ -4,8 +4,26 @@
             In this section you need to create a simple list. Use 'dataService' to get list elements.
         </p>
         <p class="justify">
+            If you want you can try to add infinite scroll by using 'ion-infinite-scroll'
+        </p>
+
+        <p class="justify">
             When you have finished your list, add item click event to show element details on a new
             page with back button (try to do it like android material profile page).
         </p>
+
+        <button class="button button-block button-positive activated" ng-click="clear()">Clear data</button>
+        <ion-list>
+            <ion-item class="item-remove-animate" data-ng-repeat="item in itemList"
+                      ui-sref="app.detail({id: item.id})">
+                {{item.name}}
+            </ion-item>
+        </ion-list>
+        <ion-infinite-scroll on-infinite="addItems()"></ion-infinite-scroll>
     </ion-content>
 </ion-view>
+
+
+<script id="templates/embedded/detail.html" type="text/ng-template">
+
+</script>

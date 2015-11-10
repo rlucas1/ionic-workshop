@@ -3,5 +3,22 @@
         <p class="justify">
             Create a list of cards. These cards must contain an avatar on the left and element description. (use dataService to get elements)
         </p>
+
+        <p class="justify">
+            Check this page for ionic elements (<a href="http://ionicframework.com/docs/components">http://ionicframework.com/docs/components</a>)
+        </p>
+
+
+        <div ng-repeat="item in items" class="list card" ui-sref="app.detail({id: item.id})">
+
+            <div class="item item-avatar">
+                <img src="img/logo.png">
+
+                <h2>{{item.name}}</h2>
+
+                <p>{{item.description}}</p>
+            </div>
+
+        </div>
     </ion-content>
 </ion-view>
