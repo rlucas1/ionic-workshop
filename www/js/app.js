@@ -25,6 +25,7 @@ angular.module('starter', [
                 // org.apache.cordova.statusbar required
                 StatusBar.styleDefault();
             }
+
         });
     })
     .config(function(uiGmapGoogleMapApiProvider) {

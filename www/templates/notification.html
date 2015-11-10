@@ -3,16 +3,32 @@
         <p class="justify">
             In this section we are going to see how to create notification.
         </p>
+
+        <p class="justify">
+            First of all we need to install cordova plugin : cordova plugin add
+            https://github.com/katzer/cordova-plugin-local-notifications.git
+            After that if you already have configured ngCordova by adding ng-cordova.js and including ngCordova to your
+            app, you can
+            use $cordovaLocalNotification in your controller
+        </p>
+
         <p>
             You need to create 3 buttons :
         <ul>
-            <li> - A button that raises a simple notification.</li>
             <li> - A button that raises a notification with an image.</li>
             <li> - A button that schedule a notification.</li>
         </ul>
 
 
         </p>
+
+        <button class="button button-block button-positive activated" ng-click="scheduleSingleNotificationIn10s()">
+            Schedule notif in 10s
+        </button>
+
+        <button class="button button-block button-positive activated" ng-click="scheduleSingleNotificationNow()">Pop
+            notif
+        </button>
 
     </ion-content>
 </ion-view>
