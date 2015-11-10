@@ -37,7 +37,6 @@ angular.module('services', [])
             },
 
             insertItem: function (item) {
-                console.log("Inserting : " + (increment++) + " " + item.name + " " + item.description);
                 return databaseService.executeQuery("INSERT INTO item (name,description)    VALUES (?,?)", [item.name, item.description]);
             },
 

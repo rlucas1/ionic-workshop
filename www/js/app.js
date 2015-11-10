@@ -29,8 +29,6 @@ angular.module('starter', ['ionic', 'controllers', 'services', 'uiGmapgoogle-map
                 StatusBar.styleDefault();
             }
 
-
-            $cordovaSQLite.execute(db, "DROP TABLE item");
             $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS item (id integer primary key autoincrement, name text,description text)");
         });
     })

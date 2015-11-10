@@ -3,7 +3,6 @@ angular.module('controllers')
 
         $scope.item = {};
 
-        //TODO voir pour mettre de vrai message
         $scope.insert = function () {
             console.log("Test");
             dataService.insertItem($scope.item).then(function (result) {
