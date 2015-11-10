@@ -1,7 +1,7 @@
 angular.module('services', [])
 
     /** Data access services **/
-    .factory('dataService', function ($q, databaseService) {
+    .factory('dataService', function ($rootScope, $q, databaseService) {
 
         var data;
 
@@ -42,7 +42,20 @@ angular.module('services', [])
 
             getDatabaseItems: function () {
                 return databaseService.executeQuery("SELECT * FROM item");
+            },
+
+            deleteData: function () {
+                return databaseService.executeQuery('DELETE FROM item').then(function () {
+                        //success
+                        return $q.when(true);
+                    },
+                    function () {
+                        //error
+                        return $q.when(false);
+                    });
+
             }
+
 
         };
     }

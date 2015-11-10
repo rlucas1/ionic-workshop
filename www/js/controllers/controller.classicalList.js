@@ -1,11 +1,6 @@
 angular.module('controllers')
     .controller('classicalListCtrl', function ($scope, $state, dataService) {
 
-        /** Getting items from service */
-        dataService.getDatabaseItems().then(function (data) {
-            $scope.itemList = data;
-        });
-
         $scope.addItems = function () {
             if ($scope.itemList) {
                 $scope.itemList.push({name: 'infinte item', description: 'Infinite description'});
@@ -16,6 +11,26 @@ angular.module('controllers')
         $scope.onItemClicked = function (item) {
             $state.go('app.classicalList.detail');
         };
+
+        $scope.clear = function () {
+            dataService.deleteData().then(function (isOk) {
+                if (isOk) {
+                    $scope.itemList.splice(0, $scope.itemList.length);
+                }
+            });
+        };
+
+
+        /** Getting items from service */
+        $scope.$on('$ionicView.enter', function () {
+            loadData();
+        });
+
+        function loadData() {
+            dataService.getDatabaseItems().then(function (data) {
+                $scope.itemList = data;
+            });
+        }
     })
 
     /** controller for item detals */
