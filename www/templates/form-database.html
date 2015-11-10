@@ -4,5 +4,30 @@
             In this section you need to create a form. On form submit you'll save data in database. After that, change
             dataService to use database informations.
         </p>
+        Steps :
+        <ul>
+            <li>1 - Add ngCordova (bower)</li>
+            <li>2 - Add add $cordovaSQLite plugin (cordova)</li>
+            <li>3 - Add init database in app.js (use $ionicPlatform.ready)</li>
+            <li>4 - Create a database service to execute query</li>
+            <li>5 - Add insert and get methods to dataService using databaseService.</li>
+            <li>6 - Create a form to insert new items.</li>
+            <li>7 - Change simple list data to load database items</li>
+        </ul>
+
+        <form ng-submit="insert()">
+            <div class="list">
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Item name</span>
+                    <input type="text" placeholder="name" data-ng-model="item.name">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Item description</span>
+                    <input type="text" placeholder="description" data-ng-model="item.description">
+                </label>
+
+                <button class="button button-block button-positive activated" type="submit">Save</button>
+            </div>
+        </form>
     </ion-content>
 </ion-view>
