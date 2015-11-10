@@ -37,10 +37,13 @@ angular.module('services', [])
             },
 
             insertItem: function (item) {
-                return databaseService.executeQuery("INSERT INTO item VALUES (?,?,?)", [2, $scope.item.name, $scope.item.description]);
-            }
+                console.log("Inserting : " + (increment++) + " " + item.name + " " + item.description);
+                return databaseService.executeQuery("INSERT INTO item (name,description)    VALUES (?,?)", [item.name, item.description]);
+            },
 
-            //TODO faire une méthode qui recupère la liste des itemset modifier la liste simple
+            getDatabaseItems: function () {
+                return databaseService.executeQuery("SELECT * FROM item");
+            }
 
         };
     }

@@ -8,6 +8,15 @@ angular.module('starter', ['ionic', 'controllers', 'services', 'uiGmapgoogle-map
 
     .run(function ($ionicPlatform, $cordovaSQLite) {
         $ionicPlatform.ready(function () {
+
+            if (window.cordova) {
+                // App syntax
+                db = $cordovaSQLite.openDB("ionic-workshop.db");
+            } else {
+                // Ionic serve syntax
+                db = window.openDatabase("ionic-workshop.db", "1.0", "Ionic-Workshop", -1);
+            }
+
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
             if (window.cordova && window.cordova.plugins.Keyboard) {
@@ -20,15 +29,9 @@ angular.module('starter', ['ionic', 'controllers', 'services', 'uiGmapgoogle-map
                 StatusBar.styleDefault();
             }
 
-            if (window.cordova) {
-                // App syntax
-                db = $cordovaSQLite.openDB("ionic-workshop.db");
-            } else {
-                // Ionic serve syntax
-                db = window.openDatabase("ionic-workshop.db", "1.0", "Ionic-Workshop", -1);
-            }
 
-            $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS item (id integer primary key, name text,description text)");
+            $cordovaSQLite.execute(db, "DROP TABLE item");
+            $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS item (id integer primary key autoincrement, name text,description text)");
         });
     })
     .config(function(uiGmapGoogleMapApiProvider) {

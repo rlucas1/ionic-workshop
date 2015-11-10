@@ -17,7 +17,13 @@ angular.module('services')
                 $ionicPlatform.ready(function () {
                     $cordovaSQLite.execute(db, query, parameters)
                         .then(function (result) {
-                            q.resolve(result);
+                            var len = result.rows.length,
+                                res = [],
+                                i = 0;
+                            for (; i < len; i = i + 1) {
+                                res[i] = result.rows.item(i);
+                            }
+                            q.resolve(res);
                         }, function (error) {
                             console.warn('I found an error');
                             console.warn(error);

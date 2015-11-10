@@ -1,14 +1,16 @@
 angular.module('controllers')
-    .controller('formDatabaseCtrl', function ($scope, dataService) {
+    .controller('formDatabaseCtrl', function ($scope, $rootScope, dataService) {
 
         $scope.item = {};
 
         //TODO voir pour mettre de vrai message
         $scope.insert = function () {
+            console.log("Test");
             dataService.insertItem($scope.item).then(function (result) {
-                    alert(JSON.stringify(result));
+                delete $scope.item.name;
+                delete $scope.item.description;
                 }, function (data) {
-                    alert("Error : " + result);
+                alert("Error : " + JSON.stringify(data));
                 }
             );
         };
