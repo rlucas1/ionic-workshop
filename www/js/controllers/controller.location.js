@@ -4,7 +4,6 @@ angular.module('controllers')
         $scope.map = { center: { latitude: 47.390031, longitude: 0.688913 }, zoom: 10 };
         $scope.markers = [];
 
-
         uiGmapGoogleMapApi.then(function(maps) {
 
 
@@ -13,11 +12,11 @@ angular.module('controllers')
                 addMarker("Current position",47.390031,0.688913 );
             });
 
-
+            addMarker("Current position", 47.390031, 0.688913);
             var watchOptions = {
                 frequency : 500,
                 timeout : 1000,
-                enableHighAccuracy: false // may cause errors if true
+                enableHighAccuracy: true // may cause errors if true
             };
 
             var watch = $cordovaGeolocation.watchPosition(watchOptions);
